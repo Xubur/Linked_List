@@ -4,7 +4,7 @@
 
 class node {
 public:
-	// TYPEDEF
+	// TYPEDEF lol
 	typedef double value_type;
 	// CONSTRUCTOR
 	node(const value_type& init_data = value_type(), node* init_link = NULL)
