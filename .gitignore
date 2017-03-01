@@ -240,3 +240,4 @@ ModelManifest.xml
 
 # FAKE - F# Make
 .fake/
+/Linked_List/Linked_List/Linked_List.vcxproj.filters
