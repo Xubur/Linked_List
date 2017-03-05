@@ -15,15 +15,12 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="node.h">
+    <ClInclude Include="..\..\..\..\..\..\..\Visual Studio 2015\Projects\Lab3_VarArrayClasses\Lab3_VarArrayClasses\varArray.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="LinkedList.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="node.cpp">
+    <ClCompile Include="..\..\..\..\..\..\..\Visual Studio 2015\Projects\Lab3_VarArrayClasses\Lab3_VarArrayClasses\varArray.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

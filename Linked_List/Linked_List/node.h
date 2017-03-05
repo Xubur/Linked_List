@@ -104,10 +104,11 @@
 #define _LINKEDLIST_H
 #include <cstdlib>
 
+template <class Item>;
 class node {
 public:
 	// TYPEDEF Will replace with templates soon enough. Just you wait.
-	typedef double value_type;
+	typedef Item value_type;
 	// CONSTRUCTOR
 	node(const value_type& init_data = value_type(), node* init_link = NULL)
 	{
@@ -146,7 +147,7 @@ private:
 // Toolkit Functions
 std::size_t list_length(const node* head_ptr);
 void list_head_insert(node*& head_ptr, const node::value_type& entry);
-void list_insert(node* prev_ptr, const node::value_type& entry);
+void list_insert(node<Item>* prev_ptr, const Item& entry);
 node* list_search(node* head_ptr, const node::value_type& target); //Data manipulation
 const node* list_search(const node* head_ptr, const node::value_type& target); //Const, no manipulation
 node* list_locate(node* head_ptr, const std::size_t position); //Data manipulation

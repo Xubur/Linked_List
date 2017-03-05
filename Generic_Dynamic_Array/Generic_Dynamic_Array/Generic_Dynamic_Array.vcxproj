@@ -19,9 +19,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{D977F1DB-1DDD-4820-92B4-0CCA813ACA0E}</ProjectGuid>
+    <ProjectGuid>{2D6FF8C3-203A-4076-9806-9F92B9D814A4}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>Linked_List</RootNamespace>
+    <RootNamespace>Generic_Dynamic_Array</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -146,11 +146,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="node.h" />
+    <ClInclude Include="..\..\..\..\..\..\..\Visual Studio 2015\Projects\Lab3_VarArrayClasses\Lab3_VarArrayClasses\varArray.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="LinkedList.cpp" />
-    <ClCompile Include="node.cpp" />
+    <ClCompile Include="..\..\..\..\..\..\..\Visual Studio 2015\Projects\Lab3_VarArrayClasses\Lab3_VarArrayClasses\varArray.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
