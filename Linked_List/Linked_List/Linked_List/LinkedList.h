@@ -78,7 +78,7 @@ LinkedList<Item>& LinkedList<Item>::operator=(LinkedList<Item>& otherList) {
 		while (head != NULL) {
 			removeHead();
 		}
-		head = otherList.getHead();
+		addHead(otherList.getHeadData());
 		for (Node<Item>* index = head; index != NULL; index = index->getNext()) {
 			addTail(index->getData());
 		}
