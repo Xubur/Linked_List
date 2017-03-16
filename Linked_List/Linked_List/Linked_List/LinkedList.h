@@ -74,9 +74,13 @@ LinkedList<Item>::~LinkedList() {
 template<class Item>
 LinkedList<Item>& LinkedList<Item>::operator=(LinkedList<Item>& otherList) {
 	if (this != &otherList) {
-		while (head != NULL)
+		std::cout << "We dont match the argument! Lets do some work." << std::endl;
+		while (head != NULL) {
+			std::cout << "Head isn't null" << std::endl;
 			removeHead();
+		}
 		for (Node<Item>* index = otherList.head; index != NULL; index = index->getNext()) {
+			std::cout << "Data is: " << index->getData() << std::endl;
 			addTail(index->getData());
 		}
 	}
@@ -130,7 +134,12 @@ void LinkedList<Item>::addTail(const Item& newData) {
 
 template <class Item>
 void LinkedList<Item>::printList() const{
+	
+	if (head == NULL)
+		std::cout << "oh fuck. head is null." << std::endl;
 	for (Node<Item>* index = head; index != NULL; index = index->getNext()) {
+		std::cout << "Here we go!" << std::endl;
 		std::cout << index->getData() << std::endl;
 	}
+	std::cout << "We all done" << std::endl;
 };
