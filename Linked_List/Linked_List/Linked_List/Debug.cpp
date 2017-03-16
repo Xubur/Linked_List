@@ -17,11 +17,9 @@ int main(void) {
 	list3.printList();
 	std::cout << "Finished first set." << std::endl;
 	list2 = list1;
-	std::cout << "Head data: " << list2.getHeadData() << std::endl; //ERROR LOL
 	list2.printList();
 	std::cout << "2 is now 1" << std::endl;
 	list3 = list2;
 	list3.printList();
 	std::cout << "3 is now 2" << std::endl;
-	return 0;
 }

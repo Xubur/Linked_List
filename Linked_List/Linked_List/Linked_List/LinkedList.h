@@ -3,7 +3,7 @@
 
 template <class Item> class LinkedList;
 
-template <class Item> 
+template <class Item>
 class Node {
 public:
 	const Item& getData() const { return data; };			// returns the data held in this node
@@ -14,7 +14,7 @@ private:
 	friend class LinkedList<Item>;
 };
 
-template <class Item> 
+template <class Item>
 class LinkedList {
 public:
 	LinkedList();							// empty constructor
@@ -67,6 +67,7 @@ LinkedList<Item>::LinkedList(LinkedList<Item>& listToCopy) {
 
 template<class Item>
 LinkedList<Item>::~LinkedList() {
+	std::cout << "Our head is: " << getHeadData();
 	while (!isEmpty())
 		removeHead();
 }
@@ -74,13 +75,11 @@ LinkedList<Item>::~LinkedList() {
 template<class Item>
 LinkedList<Item>& LinkedList<Item>::operator=(LinkedList<Item>& otherList) {
 	if (this != &otherList) {
-		std::cout << "We dont match the argument! Lets do some work." << std::endl;
 		while (head != NULL) {
-			std::cout << "Head isn't null" << std::endl;
 			removeHead();
 		}
-		for (Node<Item>* index = otherList.head; index != NULL; index = index->getNext()) {
-			std::cout << "Data is: " << index->getData() << std::endl;
+		head = otherList.getHead();
+		for (Node<Item>* index = head; index != NULL; index = index->getNext()) {
 			addTail(index->getData());
 		}
 	}
@@ -91,7 +90,6 @@ template <class Item>
 bool LinkedList<Item>::isEmpty() const {
 	return (head == NULL);
 }
-
 
 template <class Item>
 const Item& LinkedList<Item>::getHeadData() const {
@@ -133,12 +131,11 @@ void LinkedList<Item>::addTail(const Item& newData) {
 };
 
 template <class Item>
-void LinkedList<Item>::printList() const{
-	
+void LinkedList<Item>::printList() const {
+
 	if (head == NULL)
-		std::cout << "oh fuck. head is null." << std::endl;
+		std::cout << "oh crap. head is null." << std::endl;
 	for (Node<Item>* index = head; index != NULL; index = index->getNext()) {
-		std::cout << "Here we go!" << std::endl;
 		std::cout << index->getData() << std::endl;
 	}
 	std::cout << "We all done" << std::endl;
