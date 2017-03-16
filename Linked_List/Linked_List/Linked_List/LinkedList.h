@@ -56,7 +56,7 @@ LinkedList<Item>::LinkedList(LinkedList<Item>& listToCopy) {
 	else {
 		Node<Item>* tempNode = new Node<Item>;
 		head = tempNode;
-		head->data = listToCopy.getHeadData(); //Is this going to make any problems because getHeadData is constant data type?
+		head->data = listToCopy.getHeadData();
 		for (Node<Item>* index = listToCopy.head; index != NULL; index = index->next) {
 			addTail(index->data);
 		}
@@ -67,7 +67,6 @@ LinkedList<Item>::LinkedList(LinkedList<Item>& listToCopy) {
 
 template<class Item>
 LinkedList<Item>::~LinkedList() {
-	std::cout << "Our head is: " << getHeadData();
 	while (!isEmpty())
 		removeHead();
 }
@@ -78,8 +77,7 @@ LinkedList<Item>& LinkedList<Item>::operator=(LinkedList<Item>& otherList) {
 		while (head != NULL) {
 			removeHead();
 		}
-		addHead(otherList.getHeadData());
-		for (Node<Item>* index = head; index != NULL; index = index->getNext()) {
+		for (Node<Item>* index = otherList.head; index != NULL; index = index->getNext()) {
 			addTail(index->getData());
 		}
 	}
@@ -111,7 +109,7 @@ template <class Item>
 void LinkedList<Item>::removeHead() {
 	Node<Item>* oldHead = head;
 	head = oldHead->next;
-	delete oldHead;
+	//delete oldHead; //shouldn't this auto delete after the function is exited??
 };
 
 template <class Item>
@@ -120,7 +118,8 @@ void LinkedList<Item>::addTail(const Item& newData) {
 	Node<Item>* newNode = new Node<Item>;
 	newNode->data = newData;
 	newNode->next = NULL;		//This is the tail. There is nothing to point to
-	if (tail == NULL) {	//If we have an empty list, assign everything to this one node
+	if (head == NULL) {	//If we have an empty list, assign everything to this one node
+		//newNode->next = tail; //this is circular, next at this point is already null, and if tail = null, then assigning next to tail is the same as assigning next to null which is already the case.
 		head = newNode;
 		tail = newNode;
 	}
@@ -134,9 +133,8 @@ template <class Item>
 void LinkedList<Item>::printList() const {
 
 	if (head == NULL)
-		std::cout << "oh crap. head is null." << std::endl;
-	for (Node<Item>* index = head; index != NULL; index = index->getNext()) {
-		std::cout << index->getData() << std::endl;
-	}
-	std::cout << "We all done" << std::endl;
+		//std::cout << "I DONT HAVE A HEAD! *GASP* :O" << std::endl;
+		for (Node<Item>* index = head; index != NULL; index = index->next) {
+			std::cout << index->data << std::endl;
+		}
 };
